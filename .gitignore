@@ -1,0 +1,12 @@
+node_modules
+
+test-results
+
+/.cache
+/build
+.env
+.dev.vars
+
+.wrangler
+.DS_Store
+dist

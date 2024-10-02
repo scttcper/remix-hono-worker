@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - uses: wyvox/action-setup-pnpm@v3
+        with: { node-version: 22, pnpm-version: 9 }
+
+      - name: build
+        run: pnpm run build
+
+      - name: lint
+        run: pnpm run lint
+      
+      - name: tsc
+        run: npx tsc
+
+  deploy:
+    name: deploy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'main'
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: wyvox/action-setup-pnpm@v3
+        with: { node-version: 22, pnpm-version: 9 }
+
+      - name: Publish
+        run: pnpm run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          NO_D1_WARNING: true
+

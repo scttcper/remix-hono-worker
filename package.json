@@ -1,0 +1,50 @@
+{
+  "name": "example",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "build": "remix vite:build",
+    "deploy": "npm run build && wrangler deploy",
+    "dev": "remix vite:dev",
+    "dev:cron": "pnpm run build && pnpm run start",
+    "start": "wrangler dev --port 8787 --test-scheduled",
+    "typecheck": "tsc",
+    "typegen": "wrangler types",
+    "preview": "npm run build && wrangler dev",
+    "test:e2e": "playwright test -- -c playwright.config.ts e2e.test.ts",
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate"
+  },
+  "dependencies": {
+    "@remix-run/cloudflare": "^2.12.1",
+    "@remix-run/react": "^2.12.1",
+    "drizzle-orm": "^0.33.0",
+    "hono": "^4.6.3",
+    "hono-remix-adapter": "^0.2.2",
+    "isbot": "^5.1.17",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.5.13",
+    "@cloudflare/workers-types": "^4.20240925.0",
+    "@hono/node-server": "^1.13.1",
+    "@hono/vite-dev-server": "^0.16.0",
+    "@playwright/test": "^1.47.2",
+    "@remix-run/dev": "^2.12.1",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "drizzle-kit": "^0.24.2",
+    "playwright": "^1.47.2",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8",
+    "vite-tsconfig-paths": "^5.0.1",
+    "vitest": "2.1.1",
+    "wrangler": "3.79.0"
+  },
+  "repository": "scttcper/xmplaylist-remix",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
