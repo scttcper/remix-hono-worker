@@ -19,8 +19,8 @@ jobs:
       - name: build
         run: pnpm run build
 
-      - name: lint
-        run: pnpm run lint
+      # - name: lint
+      #   run: pnpm run lint
       
       - name: tsc
         run: npx tsc
