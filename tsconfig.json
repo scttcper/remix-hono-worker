@@ -12,8 +12,7 @@
     "types": [
       "@remix-run/cloudflare", 
       "vite/client",
-      "@cloudflare/workers-types/experimental",
-      "@cloudflare/vitest-pool-workers"
+      "@cloudflare/workers-types/experimental"
     ],
     "isolatedModules": true,
     "esModuleInterop": true,
