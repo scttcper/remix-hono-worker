@@ -1,6 +1,6 @@
 import { Outlet, Scripts } from '@remix-run/react';
 
-import favicon from '../public/favicon.svg';
+import favicon from '../public/vite.svg';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
