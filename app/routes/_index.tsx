@@ -11,7 +11,7 @@ export default function Index() {
   const { cloudflare, extra } = useLoaderData<typeof loader>();
   return (
     <div>
-      <h1>xmplaylist</h1>
+      <h1>header</h1>
       <h2>Var is {cloudflare.env.MY_VAR}</h2>
       <h3>
         {cloudflare.cf ? 'cf,' : ''}
